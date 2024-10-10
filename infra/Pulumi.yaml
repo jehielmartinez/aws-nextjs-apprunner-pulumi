@@ -1,0 +1,10 @@
+name: nextjs-apprunner
+description: IaC to deploy a NextJS application into AWS App Runner
+runtime:
+  name: nodejs
+  options:
+    packagemanager: yarn
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: aws-typescript
