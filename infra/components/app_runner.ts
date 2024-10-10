@@ -81,6 +81,9 @@ export const service = new aws.apprunner.Service(appName, {
       imageRepositoryType: "ECR",
       imageConfiguration: {
         port: `${appPort}`,
+        runtimeEnvironmentVariables: {
+          HOSTNAME: '0.0.0.0'
+        }
       },
     },
   },

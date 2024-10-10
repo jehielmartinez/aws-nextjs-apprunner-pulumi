@@ -14,7 +14,8 @@ const repository = new awsx.ecr.Repository(`${appName}-repository`, {
 
 const image = new awsx.ecr.Image(`${appName}-image`, {
   repositoryUrl: repository.repository.repositoryUrl,
-  dockerfile: "../../Dockerfile",
+  context: "../",
+  dockerfile: "../Dockerfile",
   imageTag: "latest",
   platform: 'linux/amd64',
 });

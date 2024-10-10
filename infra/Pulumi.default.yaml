@@ -1,10 +1,10 @@
 config:
   aws:region: us-east-1
-  aws-apprunner:app-name: nextjs-app
-  aws-apprunner:cpu: "512"
-  aws-apprunner:memory: "1024"
-  aws-apprunner:app-port: "3000"
-  aws-apprunner:max-concurrency: "100"
-  aws-apprunner:max-size: "2"
-  aws-apprunner:min-size: "1"
-  aws-apprunner:billing-id: "test-nextjs-apprunner"
+  nextjs-apprunner:app-name: nextjs-app
+  nextjs-apprunner:cpu: "512"
+  nextjs-apprunner:memory: "1024"
+  nextjs-apprunner:app-port: "3000"
+  nextjs-apprunner:max-concurrency: "100"
+  nextjs-apprunner:max-size: "2"
+  nextjs-apprunner:min-size: "1"
+  nextjs-apprunner:billing-id: "test-nextjs-apprunner"
