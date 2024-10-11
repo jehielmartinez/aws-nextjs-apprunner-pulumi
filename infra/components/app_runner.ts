@@ -42,7 +42,7 @@ export class AppRunnerService extends pulumi.ComponentResource {
       }
     }, { parent: this });
 
-    const apprunner_role = new aws.iam.Role(`${name}-apprunner-role`, {
+    const apprunner_role = new aws.iam.Role(`${name}-role`, {
       assumeRolePolicy: {
         Version: "2012-10-17",
         Statement: [
@@ -61,7 +61,7 @@ export class AppRunnerService extends pulumi.ComponentResource {
     }, { parent: this });
 
     new aws.iam.RolePolicyAttachment(
-      `${name}-apprunner-policy-attachment`,
+      `${name}-policy-attachment`,
       {
         role: apprunner_role,
         policyArn: ecr_policy.arn,
@@ -69,7 +69,7 @@ export class AppRunnerService extends pulumi.ComponentResource {
       { parent: this }
     );
 
-    const autoscaling = new aws.apprunner.AutoScalingConfigurationVersion(`${name}-apprunner-autoscaling`, {
+    const autoscaling = new aws.apprunner.AutoScalingConfigurationVersion(`${name}-autoscaling`, {
       autoScalingConfigurationName: name,
       maxConcurrency: args.maxConcurrency,
       minSize: args.minSize,
@@ -93,7 +93,7 @@ export class AppRunnerService extends pulumi.ComponentResource {
             port: `${args.appPort}`,
             runtimeEnvironmentVariables: {
               ...args.runtimeEnvVariables,
-              HOSTNAME: '0.0.0.0/16'
+              HOSTNAME: '0.0.0.0'
             }
           },
         },

@@ -26,7 +26,7 @@ export class CloudEnvironment extends pulumi.ComponentResource {
       platform: args.platform ?? 'linux/amd64',
     }, { parent: this });
 
-    const appRunner = new AppRunnerService(`${name}-apprunner-service`, {
+    const appRunner = new AppRunnerService(`${name}-apprunner`, {
       cpu: args.cpu,
       memory: args.memory,
       appPort: args.appPort,
@@ -35,7 +35,7 @@ export class CloudEnvironment extends pulumi.ComponentResource {
       maxSize: args.maxSize,
       billingId: args.billingId,
       runtimeEnvVariables: args.runtimeEnvVariables,
-      imageUri: image.imageUri,      
+      imageUri: image.imageUri,
     }, { parent: this });
 
     this.url = appRunner.url;

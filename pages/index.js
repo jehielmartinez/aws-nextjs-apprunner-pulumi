@@ -32,7 +32,7 @@ export default function Home() {
         </div>
       </main>
 
-      <footer className={styles.footer} />
+      <footer className={styles.footer}>ENVIRONMENT: {process.env.NEXT_PUBLIC_ENVIRONMENT}</footer>
     </div>
   );
 }
