@@ -36,3 +36,4 @@ This is a simple example of how to deploy a NextJS app to AWS App Runner using P
 
 - [ ] Github action to build the Docker image and push it to ECR
 - [ ] Add a custom domain to the App Runner service
+- [ ] There's an issue with the environment variables on the App Runner service, it's not being set correctly
